@@ -1,3 +1,5 @@
 .idea
 
 /tensorflow-mnist-demo/.idea
+
+/tensorflow-mnist-demo/mnist/MNIST_data
