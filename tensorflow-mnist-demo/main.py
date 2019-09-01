@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 from flask import Flask, jsonify, render_template, request
-from mnist import module as model
+from mnist import module
 
 # import os
 # os.environ["CUDA_VISIBLE_DEVICES"] = "1"
