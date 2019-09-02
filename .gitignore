@@ -2,6 +2,8 @@
 
 /tensorflow-mnist-demo/.idea
 
+/movies/movie_tensorboard
+
 /tensorflow-mnist-demo/mnist/data
 /tensorflow-mnist-demo/mnist/MNIST_data
 /tensorflow-mnist-demo/mnist/mnist_log
