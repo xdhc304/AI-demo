@@ -22,8 +22,8 @@ sess = tf.Session(config=config)
 
 
 with tf.variable_scope("regression"):
-    print(model.regression(x))
-    y1, variables = model.regression(x)
+    print(module.regression(x))
+    y1, variables = module.regression(x)
 saver = tf.train.Saver(variables)
 regression_file = tf.train.latest_checkpoint("mnist/data/regreesion.ckpt")
 if regression_file is not None:
@@ -31,7 +31,7 @@ if regression_file is not None:
 
 with tf.variable_scope("convolutional"):
     keep_prob = tf.placeholder("float")
-    y2, variables = model.convolutional(x, keep_prob)
+    y2, variables = module.convolutional(x, keep_prob)
 sess.run(tf.global_variables_initializer())
 saver = tf.train.Saver(variables)
 convolutional_file = tf.train.latest_checkpoint(
