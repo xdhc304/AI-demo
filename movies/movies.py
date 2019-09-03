@@ -9,32 +9,31 @@ import tensorflow as tf
 
 ratings_df = pd.read_csv('./ml-latest-small/ratings.csv') 
 
-
-ratings_df.tail()
+print(ratings_df.tail())
 
 movies_df = pd.read_csv('./ml-latest-small/movies.csv')
 
-movies_df.tail()
+print(movies_df.tail())
 
 movies_df['movieRow'] = movies_df.index
 
-movies_df.tail()
+print(movies_df.tail())
 
 movies_df = movies_df[['movieRow','movieId','title']]
 
 movies_df.to_csv('moviesProcessed.csv', index=False, header=True, encoding='utf-8')
 
-movies_df.tail()
+print(movies_df.tail())
 
 ratings_df = pd.merge(ratings_df, movies_df, on='movieId')
 
-ratings_df.head()
+print(ratings_df.head())
 
 ratings_df = ratings_df[['userId', 'movieRow', 'rating']]
 
 ratings_df.to_csv('ratingsProcessed.csv', index=False, header=True, encoding='utf-8')
 
-ratings_df.head()
+print(ratings_df.head())
 
 userNo = ratings_df['userId'].max() + 1
 
@@ -87,7 +86,8 @@ X_parameters = tf.Variable(tf.random_normal([movieNo, num_features], stddev=0.35
 
 Theta_parameters = tf.Variable(tf.random_normal([userNo, num_features], stddev=0.35))
 
-loss = 1/2 * tf.reduce_sum(((tf.matmul(X_parameters, Theta_parameters, transpose_b=True) - rating_norm) * record) ** 2) + 1/2 * (tf.reduce_sum(X_parameters ** 2) + tf.reduce_sum(Theta_parameters ** 2))
+loss = 1/2 * tf.reduce_sum(((tf.matmul(X_parameters, Theta_parameters, transpose_b=True) - rating_norm) * record) ** 2) + \
+      1/2 * (tf.reduce_sum(X_parameters ** 2) + tf.reduce_sum(Theta_parameters ** 2))
 
 optimizer = tf.train.AdamOptimizer(1e-4)
 train = optimizer.minimize(loss)
