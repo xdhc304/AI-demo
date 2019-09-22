@@ -31,7 +31,6 @@ print("  ".join(analyse.extract_tags(lines, topK=20, withWeight=False, allowPOS=
 lines = open(u'西游记.txt', 'rb').read()
 print("  ".join(analyse.extract_tags(lines, topK=20, withWeight=False, allowPOS=())))
 
-import jieba.analyse as analyse
 lines = open('NBA.txt', 'rb').read()
 print("  ".join(analyse.textrank(lines, topK=20, withWeight=False, allowPOS=('ns', 'n', 'vn', 'v'))))
 print("---------------------我是分割线----------------")
@@ -85,7 +84,7 @@ from whoosh.index import create_in,open_dir
 from whoosh.fields import *
 from whoosh.qparser import QueryParser
 
-analyzer = jieba.analyse.ChineseAnalyzer()
+analyzer = analyse.ChineseAnalyzer()
 schema = Schema(title=TEXT(stored=True), path=ID(stored=True), content=TEXT(stored=True, analyzer=analyzer))
     
 if not os.path.exists("tmp"):

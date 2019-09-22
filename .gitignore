@@ -9,3 +9,5 @@ __pycache__
 /tensorflow-mnist-demo/mnist/data
 /tensorflow-mnist-demo/mnist/MNIST_data
 /tensorflow-mnist-demo/mnist/mnist_log
+
+/jieba-demo/tmp
