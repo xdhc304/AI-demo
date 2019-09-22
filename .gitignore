@@ -1,5 +1,7 @@
 .idea
 
+__pycache__
+
 /tensorflow-mnist-demo/.idea
 
 /movies/movie_tensorboard
